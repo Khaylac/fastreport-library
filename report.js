@@ -67,7 +67,7 @@ function createCarousel(report) {
                         index === 0 ? "active" : ""
                     }"
                     data-index="${index}"
-                    aria-label="Show image ${index + 1}"
+                    aria-label="Mostrar imagem ${index + 1}"
                 >
                 </button>
 
@@ -86,7 +86,7 @@ function createCarousel(report) {
 
                 <button
                     class="carousel-button carousel-prev"
-                    aria-label="Previous image"
+                    aria-label="Imagem anterior"
                 >
                     ←
                 </button>
@@ -94,7 +94,7 @@ function createCarousel(report) {
 
                 <button
                     class="carousel-button carousel-next"
-                    aria-label="Next image"
+                    aria-label="Próxima imagem"
                 >
                     →
                 </button>
@@ -114,6 +114,7 @@ function createCarousel(report) {
                     id="carousel-image"
                     src="reports/${report.folder}/${images[0]}"
                     alt="${report.name} Preview"
+                    title="Clique para ampliar"
                 >
 
                 ${navigation}
@@ -137,6 +138,8 @@ function createCarousel(report) {
 function setupCarousel(report) {
 
     if (report.images.length <= 1) {
+
+        setupImageModal();
 
         return;
 
@@ -191,7 +194,10 @@ function setupCarousel(report) {
 
     previousButton.addEventListener(
         "click",
-        function() {
+        function(event) {
+
+            event.stopPropagation();
+
 
             let newIndex =
                 currentImage - 1;
@@ -213,7 +219,10 @@ function setupCarousel(report) {
 
     nextButton.addEventListener(
         "click",
-        function() {
+        function(event) {
+
+            event.stopPropagation();
+
 
             let newIndex =
                 currentImage + 1;
@@ -253,6 +262,85 @@ function setupCarousel(report) {
         );
 
     });
+
+
+    setupImageModal();
+
+}
+
+
+function setupImageModal() {
+
+    const image =
+        document.getElementById("carousel-image");
+
+
+    image.addEventListener(
+        "click",
+        function() {
+
+            const modal =
+                document.createElement("div");
+
+
+            modal.className =
+                "image-modal";
+
+
+            modal.innerHTML = `
+
+                <button
+                    class="image-modal-close"
+                    aria-label="Fechar imagem"
+                >
+                    ×
+                </button>
+
+
+                <img
+                    src="${image.src}"
+                    alt="${image.alt}"
+                >
+
+            `;
+
+
+            document.body.appendChild(
+                modal
+            );
+
+
+            modal.addEventListener(
+                "click",
+                function(event) {
+
+                    if (
+                        event.target === modal
+                    ) {
+
+                        modal.remove();
+
+                    }
+
+                }
+            );
+
+
+            modal
+                .querySelector(
+                    ".image-modal-close"
+                )
+                .addEventListener(
+                    "click",
+                    function() {
+
+                        modal.remove();
+
+                    }
+                );
+
+        }
+    );
 
 }
 
@@ -305,17 +393,6 @@ function loadReport() {
                 <div class="report-meta">
 
                     ${
-                        report.type
-                            ? `
-                                <span class="category">
-                                    ${report.type.toUpperCase()}
-                                </span>
-                            `
-                            : ""
-                    }
-
-
-                    ${
                         report.screen
                             ? `
                                 <span class="screen">
@@ -324,6 +401,17 @@ function loadReport() {
                             `
                             : ""
                     }
+
+
+                    <span class="type">
+
+                        ${
+                            report.type
+                                ? report.type
+                                : "Sem classificação"
+                        }
+
+                    </span>
 
 
                     <span class="version">
