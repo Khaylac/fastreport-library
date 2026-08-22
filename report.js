@@ -23,6 +23,7 @@ function createList(items) {
 
     let html = "<ul>";
 
+
     items.forEach(function(item) {
 
         html += `
@@ -31,7 +32,9 @@ function createList(items) {
 
     });
 
+
     html += "</ul>";
+
 
     return html;
 
@@ -275,11 +278,11 @@ function loadReport() {
         container.innerHTML = `
 
             <h1>
-                Report not found
+                Relatório não encontrado
             </h1>
 
             <p>
-                The report you are looking for does not exist.
+                O relatório que você está procurando não existe.
             </p>
 
         `;
@@ -301,9 +304,27 @@ function loadReport() {
 
                 <div class="report-meta">
 
-                    <span class="category">
-                        ${report.category.toUpperCase()}
-                    </span>
+                    ${
+                        report.type
+                            ? `
+                                <span class="category">
+                                    ${report.type.toUpperCase()}
+                                </span>
+                            `
+                            : ""
+                    }
+
+
+                    ${
+                        report.screen
+                            ? `
+                                <span class="screen">
+                                    ${report.screen}
+                                </span>
+                            `
+                            : ""
+                    }
+
 
                     <span class="version">
                         v${report.version}
@@ -324,7 +345,7 @@ function loadReport() {
 
                 <div class="report-updated">
 
-                    Updated: ${report.updated}
+                    Atualizado em: ${report.updated}
 
                 </div>
 
@@ -336,7 +357,7 @@ function loadReport() {
                         target="_blank"
                         class="button button-details"
                     >
-                        Preview PDF
+                        Visualizar PDF
                     </a>
 
 
@@ -368,7 +389,7 @@ function loadReport() {
             <div class="report-details-section">
 
                 <h2>
-                    Features
+                    Recursos
                 </h2>
 
                 ${createList(report.features)}
@@ -379,7 +400,7 @@ function loadReport() {
             <div class="report-details-section">
 
                 <h2>
-                    Requirements
+                    Requisitos
                 </h2>
 
                 ${createList(report.requirements)}
@@ -390,7 +411,7 @@ function loadReport() {
             <div class="report-details-section">
 
                 <h2>
-                    Parameters
+                    Parâmetros
                 </h2>
 
                 ${createList(report.parameters)}
