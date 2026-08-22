@@ -3,9 +3,9 @@ const reports = [
     {
         id: "pedido-de-venda-a4-1",
         name: "Pedido de Venda A4 1",
-        category: "Sales",
+        category: "Pedidos de Venda",
         description:
-            "Sales order report in A4 format.",
+            "Layout A4 para tela pedido de venda.",
         version: "1.0",
         updated: "22/08/2026",
         folder: "controle-de-impressos/pedidos-de-venda/pedido-de-venda-a4-1",
@@ -16,21 +16,20 @@ const reports = [
 
 
         features: [
-            "A4 page format",
-            "Sales order information",
-            "Ready for FastReport"
+            "Formato de Impressão: A4",
+            "Informações básicas do pedido de venda"
         ],
 
 
         requirements: [
-            "FastReport 2022.3 or newer",
-            "Compatible database structure"
+            "FastReport 2022.3+",
+            "Firebird 3.0+"
         ],
 
 
         parameters: [
-            "Sales order",
-            "Company"
+            "Pedidos de Venda",
+            "Layouts"
         ]
 
     },
