@@ -8,7 +8,7 @@ const reports = [
             "Sales order report in A4 format.",
         version: "1.0",
         updated: "22/08/2026",
-        folder: "pedido-de-venda-a4-1",
+        folder: "controle-de-impressos/pedidos-de-venda/pedido-de-venda-a4-1",
         images: [
             "preview.png",
             "preview-2.png"
@@ -38,25 +38,16 @@ const reports = [
 
     {
         id: "long-description-test",
-
         name: "Long Description Test",
-
         category: "Inventory",
-
         description:
             "This is a deliberately much longer description used to test how the report cards behave when different reports contain different amounts of text in their description section.",
-
         version: "1.0",
-
         updated: "22/08/2026",
-
-        folder: "pedido-de-venda-a4-1",
-
-
+        folder: "controle-de-impressos/pedidos-de-venda/pedido-de-venda-a4-1",
         images: [
             "preview.png"
         ],
-
 
         features: [
             "Test feature one",
@@ -64,11 +55,9 @@ const reports = [
             "Test feature three"
         ],
 
-
         requirements: [
             "Test requirement"
         ],
-
 
         parameters: [
             "Test parameter"
@@ -79,36 +68,26 @@ const reports = [
 
     {
         id: "test-report-3",
-
         name: "Test Report 3",
-
         category: "Production",
-
         description:
             "A temporary report used to test the layout and future functionality of the FastReport Library.",
-
         version: "1.0",
-
         updated: "22/08/2026",
-
         folder: "pedido-de-venda-a4-1",
-
 
         images: [
             "preview.png"
         ],
-
-
+        
         features: [
             "Temporary feature",
             "Another temporary feature"
         ],
 
-
         requirements: [
             "Test environment"
         ],
-
 
         parameters: [
             "Date range"
@@ -119,36 +98,26 @@ const reports = [
 
     {
         id: "test-report-4",
-
         name: "Test Report 4",
-
         category: "Finance",
-
         description:
             "Another temporary report used to populate the second row and test the overall layout of the report library.",
-
         version: "1.0",
-
         updated: "22/08/2026",
-
-        folder: "pedido-de-venda-a4-1",
-
+        folder: "controle-de-impressos/pedidos-de-venda/pedido-de-venda-a4-1",
 
         images: [
             "preview.png"
         ],
-
 
         features: [
             "Temporary feature",
             "Layout testing"
         ],
 
-
         requirements: [
             "Test environment"
         ],
-
 
         parameters: [
             "Company"
