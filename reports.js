@@ -1,7 +1,7 @@
 const reports = [
 
     {
-        name: "Pedido de Venda A4 1 - TESTEEEE",
+        name: "Pedido de Venda A4 TESTE",
         category: "Sales",
         description: "Sales order report in A4 format.",
         folder: "pedido-de-venda-a4-1"
