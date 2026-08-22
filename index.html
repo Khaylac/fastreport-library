@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>FastReport Library</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
 
+
 <body>
+
+
+    <!-- HEADER -->
 
     <header>
 
@@ -19,14 +31,27 @@
             FastReport Library
         </div>
 
+
         <nav>
-            <a href="#">Home</a>
-            <a href="#">Reports</a>
-            <a href="#">About</a>
+
+            <a href="#">
+                Home
+            </a>
+
+            <a href="#">
+                Reports
+            </a>
+
+            <a href="#">
+                About
+            </a>
+
         </nav>
 
     </header>
 
+
+    <!-- HERO SECTION -->
 
     <section class="hero">
 
@@ -41,6 +66,8 @@
     </section>
 
 
+    <!-- REPORTS -->
+
     <main class="container">
 
         <h2 class="section-title">
@@ -48,136 +75,28 @@
         </h2>
 
 
-        <div class="report-grid">
+        <!--
+            Report cards are generated automatically
+            by script.js using the data from reports.js
+        -->
 
-
-            <div class="report-card">
-
-    <div class="report-preview">
-        <img
-            src="reports/pedido-de-venda-a4-1/Pedido%20de%20Venda%20A4%201.png"
-            alt="Pedido de Venda A4 1 Preview"
+        <div
+            class="report-grid"
+            id="report-grid"
         >
-    </div>
-
-    <div class="report-content">
-
-        <span class="category">
-            SALES
-        </span>
-
-        <h3>
-            Pedido de Venda A4 1
-        </h3>
-
-        <p>
-            Sales order report in A4 format.
-        </p>
-
-        <div class="buttons">
-
-            <a
-                href="reports/pedido-de-venda-a4-1/Pedido%20de%20Venda%20A4%201.pdf"
-                target="_blank"
-                class="button button-preview"
-            >
-                Preview
-            </a>
-
-            <a
-                href="reports/pedido-de-venda-a4-1/Pedido%20de%20Venda%20A4%201.fr3"
-                download
-                class="button button-download"
-            >
-                Download FR3
-            </a>
-
         </div>
 
-    </div>
-
-</div>
-
-
-            <div class="report-card">
-
-                <div class="report-preview">
-                    Report Preview
-                </div>
-
-                <div class="report-content">
-
-                    <span class="category">
-                        INVENTORY
-                    </span>
-
-                    <h3>
-                        Inventory Divergence Report
-                    </h3>
-
-                    <p>
-                        Compare inventory movements and identify
-                        stock divergences.
-                    </p>
-
-                    <div class="buttons">
-
-                        <a href="#" class="button button-preview">
-                            Preview
-                        </a>
-
-                        <a href="#" class="button button-download">
-                            Download FR3
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="report-card">
-
-                <div class="report-preview">
-                    Report Preview
-                </div>
-
-                <div class="report-content">
-
-                    <span class="category">
-                        PRODUCTION
-                    </span>
-
-                    <h3>
-                        Production Summary
-                    </h3>
-
-                    <p>
-                        Summarize production orders and totals
-                        within a selected period.
-                    </p>
-
-                    <div class="buttons">
-
-                        <a href="#" class="button button-preview">
-                            Preview
-                        </a>
-
-                        <a href="#" class="button button-download">
-                            Download FR3
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </div>
 
     </main>
 
+
+    <!-- JAVASCRIPT -->
+
+    <script src="reports.js"></script>
+
+    <script src="script.js"></script>
+
+
 </body>
+
 </html>
