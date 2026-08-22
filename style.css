@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+header {
+    background: #0f2b5b;
+    color: white;
+    padding: 18px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    opacity: 0.85;
+}
+
+nav a:hover {
+    opacity: 1;
+}
+
+.hero {
+    background: white;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 42px;
+    color: #0f2b5b;
+}
+
+.hero p {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #6b7280;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.report-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 25px;
+}
+
+.report-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.report-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.report-preview {
+    height: 180px;
+    background: #dbe5f5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #4b6385;
+}
+
+.report-content {
+    padding: 20px;
+}
+
+.category {
+    display: inline-block;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    background: #e6eefb;
+    color: #2855a7;
+
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.report-card h3 {
+    margin: 15px 0 10px;
+    font-size: 20px;
+}
+
+.report-card p {
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button {
+    flex: 1;
+
+    text-align: center;
+    text-decoration: none;
+
+    padding: 10px;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+}
+
+.button-preview {
+    border: 1px solid #d1d5db;
+    color: #374151;
+}
+
+.button-download {
+    background: #2855a7;
+    color: white;
+}
