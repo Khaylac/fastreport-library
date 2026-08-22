@@ -8,29 +8,6 @@ function createReportCard(report) {
     `;
 
 
-    const buttons = `
-        <div class="buttons">
-
-            <a
-                href="reports/${report.folder}/example.pdf"
-                target="_blank"
-                class="button button-preview"
-            >
-                Preview
-            </a>
-
-            <a
-                href="reports/${report.folder}/report.fr3"
-                download
-                class="button button-download"
-            >
-                Download FR3
-            </a>
-
-        </div>
-    `;
-
-
     return `
 
         <div class="report-card">
@@ -72,7 +49,25 @@ function createReportCard(report) {
                 </div>
 
 
-                ${buttons}
+                <div class="buttons">
+
+                    <a
+                        href="report.html?id=${report.id}"
+                        class="button button-details"
+                    >
+                        View Details
+                    </a>
+
+
+                    <a
+                        href="reports/${report.folder}/report.fr3"
+                        download
+                        class="button button-download"
+                    >
+                        Download FR3
+                    </a>
+
+                </div>
 
             </div>
 
