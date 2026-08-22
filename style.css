@@ -104,6 +104,12 @@ nav a:hover {
     color: #4b6385;
 }
 
+.report-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .report-content {
     padding: 20px;
 }
