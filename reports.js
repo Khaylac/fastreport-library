@@ -17,6 +17,11 @@ const reports = [
         folder: "pedido-de-venda-a4-1",
 
 
+        images: [
+            "preview.png"
+        ],
+
+
         features: [
             "A4 page format",
             "Sales order information",
@@ -55,6 +60,11 @@ const reports = [
         folder: "pedido-de-venda-a4-1",
 
 
+        images: [
+            "preview.png"
+        ],
+
+
         features: [
             "Test feature one",
             "Test feature two",
@@ -91,6 +101,11 @@ const reports = [
         folder: "pedido-de-venda-a4-1",
 
 
+        images: [
+            "preview.png"
+        ],
+
+
         features: [
             "Temporary feature",
             "Another temporary feature"
@@ -124,6 +139,11 @@ const reports = [
         updated: "22/08/2026",
 
         folder: "pedido-de-venda-a4-1",
+
+
+        images: [
+            "preview.png"
+        ],
 
 
         features: [
