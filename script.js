@@ -5,6 +5,12 @@ let searchText = "";
 
 function createReportCard(report) {
 
+    const previewImage =
+        report.images.length > 0
+            ? report.images[0]
+            : "";
+
+
     return `
 
         <div class="report-card">
@@ -12,7 +18,7 @@ function createReportCard(report) {
             <div class="report-preview">
 
                 <img
-                    src="reports/${report.folder}/preview.png"
+                    src="reports/${report.folder}/${previewImage}"
                     alt="${report.name} Preview"
                 >
 
