@@ -1,74 +1,34 @@
 function createReportCard(report) {
 
-    let preview;
+    const preview = `
+        <img
+            src="reports/${report.folder}/preview.png"
+            alt="${report.name} Preview"
+        >
+    `;
 
-    if (report.folder) {
 
-        preview = `
-            <img
-                src="reports/${report.folder}/preview.png"
-                alt="${report.name} Preview"
+    const buttons = `
+        <div class="buttons">
+
+            <a
+                href="reports/${report.folder}/example.pdf"
+                target="_blank"
+                class="button button-preview"
             >
-        `;
+                Preview
+            </a>
 
-    } else {
+            <a
+                href="reports/${report.folder}/report.fr3"
+                download
+                class="button button-download"
+            >
+                Download FR3
+            </a>
 
-        preview = `
-            Report Preview
-        `;
-
-    }
-
-
-    let buttons;
-
-    if (report.folder) {
-
-        buttons = `
-            <div class="buttons">
-
-                <a
-                    href="reports/${report.folder}/example.pdf"
-                    target="_blank"
-                    class="button button-preview"
-                >
-                    Preview
-                </a>
-
-                <a
-                    href="reports/${report.folder}/report.fr3"
-                    download
-                    class="button button-download"
-                >
-                    Download FR3
-                </a>
-
-            </div>
-        `;
-
-    } else {
-
-        buttons = `
-            <div class="buttons">
-
-                <a
-                    href="#"
-                    class="button button-preview"
-                >
-                    Preview
-                </a>
-
-                <a
-                    href="#"
-                    class="button button-download"
-                >
-                    Download FR3
-                </a>
-
-            </div>
-        `;
-
-    }
+        </div>
+    `;
 
 
     return `
@@ -84,9 +44,17 @@ function createReportCard(report) {
 
             <div class="report-content">
 
-                <span class="category">
-                    ${report.category.toUpperCase()}
-                </span>
+                <div class="report-meta">
+
+                    <span class="category">
+                        ${report.category.toUpperCase()}
+                    </span>
+
+                    <span class="version">
+                        v${report.version}
+                    </span>
+
+                </div>
 
 
                 <h3>
@@ -94,9 +62,14 @@ function createReportCard(report) {
                 </h3>
 
 
-                <p>
+                <p class="report-description">
                     ${report.description}
                 </p>
+
+
+                <div class="report-updated">
+                    Updated: ${report.updated}
+                </div>
 
 
                 ${buttons}
