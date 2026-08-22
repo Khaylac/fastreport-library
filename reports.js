@@ -2,23 +2,16 @@ const reports = [
 
     {
         id: "pedido-de-venda-a4-1",
-
         name: "Pedido de Venda A4 1",
-
         category: "Sales",
-
         description:
             "Sales order report in A4 format.",
-
         version: "1.0",
-
         updated: "22/08/2026",
-
         folder: "pedido-de-venda-a4-1",
-
-
         images: [
-            "preview.png"
+            "preview.png",
+            "preview-2.png"
         ],
 
 
