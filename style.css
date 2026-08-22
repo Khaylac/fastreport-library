@@ -1075,7 +1075,7 @@ nav a:hover {
 
     margin: 0 auto;
 
-    padding: 70px 24px 80px;
+    padding: 70px 24px 30px;
 }
 
 
@@ -1133,7 +1133,7 @@ nav a:hover {
 
 
 /* =====================================================
-   SUPPORT CARDS
+   CONTACT CARDS
    ===================================================== */
 
 .support-grid {
@@ -1159,14 +1159,13 @@ nav a:hover {
 
     padding: 30px;
 
+    box-sizing: border-box;
+
     border-radius: 18px;
 
     border:
         1px solid
         rgba(255, 255, 255, 0.08);
-
-    background:
-        rgba(255, 255, 255, 0.025);
 
     transition:
         transform 0.2s ease,
@@ -1183,11 +1182,37 @@ nav a:hover {
 }
 
 
-.support-card-primary {
+/* -----------------------------------------------------
+   CARD COLORS
+   ----------------------------------------------------- */
+
+/* Support - strongest */
+
+.support-card-support {
     background:
-        rgba(79, 140, 255, 0.07);
+        rgba(79, 140, 255, 0.10);
 }
 
+
+/* Sales - slightly lighter */
+
+.support-card-sales {
+    background:
+        rgba(79, 140, 255, 0.065);
+}
+
+
+/* Email - lightest */
+
+.support-card-email {
+    background:
+        rgba(79, 140, 255, 0.045);
+}
+
+
+/* =====================================================
+   CARD ICON
+   ===================================================== */
 
 .support-card-icon {
     width: 52px;
@@ -1207,6 +1232,10 @@ nav a:hover {
         rgba(255, 255, 255, 0.07);
 }
 
+
+/* =====================================================
+   CARD TEXT
+   ===================================================== */
 
 .support-card-label {
     margin-bottom: 10px;
@@ -1242,6 +1271,7 @@ nav a:hover {
 
 .support-contact {
     margin-top: auto;
+
     margin-bottom: 22px;
 }
 
@@ -1262,16 +1292,49 @@ nav a:hover {
     font-weight: 600;
 
     text-decoration: none;
+
+    /* Slightly darker / less bright */
+
+    opacity: 0.72;
 }
 
 
 .support-contact a:hover {
+    opacity: 0.9;
+
     text-decoration: underline;
 }
 
 
 /* =====================================================
-   ABOUT SECTION
+   SUPPORT BUTTONS
+   ===================================================== */
+
+/*
+   All buttons have the same width and therefore
+   don't change size depending on their text.
+*/
+
+.support-card .button {
+    width: 100%;
+
+    min-height: 44px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   ABOUT / LIBRARY INFORMATION
    ===================================================== */
 
 .support-info {
@@ -1328,6 +1391,25 @@ nav a:hover {
 
 
 /* =====================================================
+   FOOTER
+   ===================================================== */
+
+.support-footer {
+    margin-top: 45px;
+
+    padding-bottom: 10px;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    letter-spacing: 0.3px;
+
+    opacity: 0.45;
+}
+
+
+/* =====================================================
    RESPONSIVE
    ===================================================== */
 
@@ -1352,7 +1434,7 @@ nav a:hover {
         padding:
             45px
             18px
-            60px;
+            30px;
     }
 
 
@@ -1363,6 +1445,11 @@ nav a:hover {
 
     .support-info {
         padding: 28px;
+    }
+
+
+    .support-card {
+        padding: 25px;
     }
 
 }
