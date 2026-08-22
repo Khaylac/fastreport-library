@@ -20,7 +20,8 @@ const reports = [
             "controle-de-impressos/pedidos-de-venda/pedido-de-venda-a4-1",
 
         images: [
-            "preview.png"
+            "preview.png",
+            "preview-2.png"
         ],
 
         features: [
