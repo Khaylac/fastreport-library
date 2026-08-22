@@ -74,7 +74,7 @@ const reports = [
             "A temporary report used to test the layout and future functionality of the FastReport Library.",
         version: "1.0",
         updated: "22/08/2026",
-        folder: "pedido-de-venda-a4-1",
+        folder: "controle-de-impressos/pedidos-de-venda/pedido-de-venda-a4-1",
 
         images: [
             "preview.png"
