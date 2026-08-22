@@ -38,7 +38,7 @@
                 Home
             </a>
 
-            <a href="#">
+            <a href="#reports">
                 Reports
             </a>
 
@@ -68,22 +68,54 @@
 
     <!-- REPORTS -->
 
-    <main class="container">
+    <main
+        class="container"
+        id="reports"
+    >
 
         <h2 class="section-title">
             Featured Reports
         </h2>
 
 
-        <!--
-            Report cards are generated automatically
-            by script.js using the data from reports.js
-        -->
+        <!-- SEARCH -->
+
+        <div class="search-container">
+
+            <input
+                type="text"
+                id="search-input"
+                placeholder="Search reports..."
+            >
+
+        </div>
+
+
+        <!-- CATEGORY FILTERS -->
+
+        <div
+            class="category-filters"
+            id="category-filters"
+        >
+        </div>
+
+
+        <!-- REPORT CARDS -->
 
         <div
             class="report-grid"
             id="report-grid"
         >
+        </div>
+
+
+        <!-- NO RESULTS MESSAGE -->
+
+        <div
+            class="no-results"
+            id="no-results"
+        >
+            No reports found.
         </div>
 
 
