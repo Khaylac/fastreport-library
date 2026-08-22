@@ -38,16 +38,236 @@ function createList(items) {
 }
 
 
+function createCarousel(report) {
+
+    const images = report.images;
+
+
+    if (images.length === 0) {
+
+        return "";
+
+    }
+
+
+    let indicators = "";
+
+
+    if (images.length > 1) {
+
+        images.forEach(function(image, index) {
+
+            indicators += `
+
+                <button
+                    class="carousel-indicator ${
+                        index === 0 ? "active" : ""
+                    }"
+                    data-index="${index}"
+                    aria-label="Show image ${index + 1}"
+                >
+                </button>
+
+            `;
+
+        });
+
+    }
+
+
+    const navigation =
+
+        images.length > 1
+
+            ? `
+
+                <button
+                    class="carousel-button carousel-prev"
+                    aria-label="Previous image"
+                >
+                    ←
+                </button>
+
+
+                <button
+                    class="carousel-button carousel-next"
+                    aria-label="Next image"
+                >
+                    →
+                </button>
+
+            `
+
+            : "";
+
+
+    return `
+
+        <div class="report-carousel">
+
+            <div class="carousel-image-container">
+
+                <img
+                    id="carousel-image"
+                    src="reports/${report.folder}/${images[0]}"
+                    alt="${report.name} Preview"
+                >
+
+                ${navigation}
+
+            </div>
+
+
+            <div class="carousel-indicators">
+
+                ${indicators}
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+function setupCarousel(report) {
+
+    if (report.images.length <= 1) {
+
+        return;
+
+    }
+
+
+    let currentImage = 0;
+
+
+    const image =
+        document.getElementById("carousel-image");
+
+
+    const previousButton =
+        document.querySelector(".carousel-prev");
+
+
+    const nextButton =
+        document.querySelector(".carousel-next");
+
+
+    const indicators =
+        document.querySelectorAll(
+            ".carousel-indicator"
+        );
+
+
+    function showImage(index) {
+
+        currentImage = index;
+
+
+        image.src =
+            `reports/${report.folder}/${report.images[index]}`;
+
+
+        indicators.forEach(function(indicator) {
+
+            indicator.classList.remove(
+                "active"
+            );
+
+        });
+
+
+        indicators[index].classList.add(
+            "active"
+        );
+
+    }
+
+
+    previousButton.addEventListener(
+        "click",
+        function() {
+
+            let newIndex =
+                currentImage - 1;
+
+
+            if (newIndex < 0) {
+
+                newIndex =
+                    report.images.length - 1;
+
+            }
+
+
+            showImage(newIndex);
+
+        }
+    );
+
+
+    nextButton.addEventListener(
+        "click",
+        function() {
+
+            let newIndex =
+                currentImage + 1;
+
+
+            if (
+                newIndex >=
+                report.images.length
+            ) {
+
+                newIndex = 0;
+
+            }
+
+
+            showImage(newIndex);
+
+        }
+    );
+
+
+    indicators.forEach(function(indicator) {
+
+        indicator.addEventListener(
+            "click",
+            function() {
+
+                const index =
+                    Number(
+                        indicator.dataset.index
+                    );
+
+
+                showImage(index);
+
+            }
+        );
+
+    });
+
+}
+
+
 function loadReport() {
 
     const reportId =
         getReportId();
 
+
     const report =
         findReport(reportId);
 
+
     const container =
-        document.getElementById("report-details");
+        document.getElementById(
+            "report-details"
+        );
 
 
     if (!report) {
@@ -114,7 +334,7 @@ function loadReport() {
                     <a
                         href="reports/${report.folder}/example.pdf"
                         target="_blank"
-                        class="button button-preview"
+                        class="button button-details"
                     >
                         Preview PDF
                     </a>
@@ -135,10 +355,7 @@ function loadReport() {
 
             <div class="report-large-preview">
 
-                <img
-                    src="reports/${report.folder}/preview.png"
-                    alt="${report.name} Preview"
-                >
+                ${createCarousel(report)}
 
             </div>
 
@@ -184,6 +401,9 @@ function loadReport() {
         </section>
 
     `;
+
+
+    setupCarousel(report);
 
 }
 
