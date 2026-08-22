@@ -1,4 +1,4 @@
-let selectedCategory = "All";
+let selectedScreen = "Todos";
 
 let searchText = "";
 
@@ -29,9 +29,27 @@ function createReportCard(report) {
 
                 <div class="report-meta">
 
-                    <span class="category">
-                        ${report.category.toUpperCase()}
-                    </span>
+                    ${
+                        report.type
+                            ? `
+                                <span class="category">
+                                    ${report.type.toUpperCase()}
+                                </span>
+                            `
+                            : ""
+                    }
+
+
+                    ${
+                        report.screen
+                            ? `
+                                <span class="screen">
+                                    ${report.screen}
+                                </span>
+                            `
+                            : ""
+                    }
+
 
                     <span class="version">
                         v${report.version}
@@ -51,7 +69,7 @@ function createReportCard(report) {
 
 
                 <div class="report-updated">
-                    Updated: ${report.updated}
+                    Atualizado em: ${report.updated}
                 </div>
 
 
@@ -61,7 +79,7 @@ function createReportCard(report) {
                         href="report.html?id=${report.id}"
                         class="button button-details"
                     >
-                        View Details
+                        Ver Detalhes
                     </a>
 
 
@@ -88,9 +106,9 @@ function getFilteredReports() {
 
     return reports.filter(function(report) {
 
-        const matchesCategory =
-            selectedCategory === "All" ||
-            report.category === selectedCategory;
+        const matchesScreen =
+            selectedScreen === "Todos" ||
+            report.screen === selectedScreen;
 
 
         const searchableText =
@@ -99,7 +117,9 @@ function getFilteredReports() {
             " " +
             report.description +
             " " +
-            report.category;
+            (report.screen || "") +
+            " " +
+            (report.type || "");
 
 
         const matchesSearch =
@@ -112,7 +132,7 @@ function getFilteredReports() {
 
 
         return (
-            matchesCategory &&
+            matchesScreen &&
             matchesSearch
         );
 
@@ -159,40 +179,50 @@ function renderReports() {
 }
 
 
-function createCategoryFilters() {
+function createScreenFilters() {
 
     const filterContainer =
         document.getElementById("category-filters");
 
 
-    const categories =
+    const screens =
+
+        reports
+            .map(function(report) {
+
+                return report.screen;
+
+            })
+            .filter(function(screen) {
+
+                return screen !== null;
+
+            });
+
+
+    const uniqueScreens =
+
         [
-            "All",
-            ...new Set(
-                reports.map(function(report) {
-
-                    return report.category;
-
-                })
-            )
+            "Todos",
+            ...new Set(screens)
         ];
 
 
-    categories.forEach(function(category) {
+    uniqueScreens.forEach(function(screen) {
 
         const button =
             document.createElement("button");
 
 
         button.textContent =
-            category;
+            screen;
 
 
         button.className =
             "category-button";
 
 
-        if (category === selectedCategory) {
+        if (screen === selectedScreen) {
 
             button.classList.add("active");
 
@@ -203,8 +233,8 @@ function createCategoryFilters() {
             "click",
             function() {
 
-                selectedCategory =
-                    category;
+                selectedScreen =
+                    screen;
 
 
                 document
@@ -264,7 +294,7 @@ function setupSearch() {
 
 function initializeLibrary() {
 
-    createCategoryFilters();
+    createScreenFilters();
 
     setupSearch();
 
