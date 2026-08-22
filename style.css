@@ -357,9 +357,13 @@ nav a:hover {
 
 .report-preview img {
     width: 100%;
+
     height: 100%;
+
     object-fit: cover;
+
     object-position: top;
+
     transition:
         transform 0.35s ease;
 }
@@ -631,6 +635,10 @@ nav a:hover {
 }
 
 
+/* =========================
+   REPORT CAROUSEL
+========================= */
+
 .report-large-preview {
     overflow: hidden;
 
@@ -645,12 +653,124 @@ nav a:hover {
 }
 
 
-.report-large-preview img {
+.report-carousel {
+    width: 100%;
+}
+
+
+.carousel-image-container {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #e9eff8;
+}
+
+
+.carousel-image-container img {
     display: block;
 
     width: 100%;
 
     height: auto;
+}
+
+
+/* CAROUSEL ARROWS */
+
+.carousel-button {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(16, 42, 86, 0.8);
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.carousel-button:hover {
+    background: #2855a7;
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+
+.carousel-prev {
+    left: 15px;
+}
+
+
+.carousel-next {
+    right: 15px;
+}
+
+
+/* CAROUSEL INDICATORS */
+
+.carousel-indicators {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 14px;
+}
+
+
+.carousel-indicator {
+    width: 8px;
+
+    height: 8px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #c5cfdd;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.carousel-indicator:hover {
+    transform: scale(1.25);
+}
+
+
+.carousel-indicator.active {
+    background: #2855a7;
 }
 
 
@@ -777,6 +897,15 @@ nav a:hover {
 
     .buttons {
         flex-direction: column;
+    }
+
+
+    .carousel-button {
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 18px;
     }
 
 }
