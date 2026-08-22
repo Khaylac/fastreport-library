@@ -30,10 +30,10 @@ function createReportCard(report) {
                 <div class="report-meta">
 
                     ${
-                        report.type
+                        report.screen
                             ? `
-                                <span class="category">
-                                    ${report.type.toUpperCase()}
+                                <span class="screen">
+                                    ${report.screen}
                                 </span>
                             `
                             : ""
@@ -41,10 +41,10 @@ function createReportCard(report) {
 
 
                     ${
-                        report.screen
+                        report.type
                             ? `
-                                <span class="screen">
-                                    ${report.screen}
+                                <span class="type">
+                                    ${report.type}
                                 </span>
                             `
                             : ""
